@@ -5,7 +5,7 @@ import CollectionItem from '../collection-item/collection-item.component.jsx';
 const CollectionPreview = ({title, items}) => {
     return (<div className="collection-preview"> 
         <h1 className="title">{title.toUpperCase()}</h1>
-        <div className="preview">
+        <div className="preview"> 
             {
                 items
                 .filter((i, index) => index < 4)
