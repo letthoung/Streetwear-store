@@ -13,6 +13,10 @@ const defaultButtonStyle = css`
 const invertedButtonStyles = css`
     background-color: black;
     border: 1px solid black;
+    width: 80%;
+    opacity: 0.7;
+    position: absolute;
+    top: 255px;
 
     &:hover {
         background-color: darkslategray;
@@ -55,6 +59,7 @@ export const CustomButtonContainer = styled.button`
     cursor: pointer;
     display: flex;
     justify-content: center;
+
     ${getButtonStyles}
 `;
 
