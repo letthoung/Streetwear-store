@@ -16,7 +16,7 @@ const invertedButtonStyles = css`
     width: 80%;
     opacity: 0.7;
     position: absolute;
-    top: 255px;
+    top: 235px;
 
     &:hover {
         background-color: darkslategray;
