@@ -53,9 +53,7 @@ export const convertCollectionsSnapshotToMap = (collections) => {
         const { title, items } = docSnapshot.data();
         return { id: docSnapshot.id, routeName: encodeURI(title.toLowerCase()), title, items }
     })
-
-    console.log(transformedCollections);
-
+    
     return transformedCollections.reduce(
         (accumulator, element) => {
             accumulator[element.title.toLowerCase()] = element; 
