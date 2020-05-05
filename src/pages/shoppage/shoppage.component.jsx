@@ -5,26 +5,26 @@ import { connect } from 'react-redux';
 import CollectionOverview from '../../components/collection-overview/collection-overview.component';
 import CollectionPage from '../collection/collection.component';
 import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
-import { selectIsFetching } from '../../redux/shop/shop.selector';
+import { selectIsFetching, selectIsLoaded } from '../../redux/shop/shop.selector';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview);
 const CollectionPageWithSpiner = WithSpinner(CollectionPage);
 
 class ShopPage extends React.Component {
-    async componentDidMount(){
+    componentDidMount(){
         const {fetchCollectionsStartAsync} = this.props;
         fetchCollectionsStartAsync();
     }
 
     render() {
-        const { match, isFetching } = this.props;
+        const { match, isFetching, isLoaded } = this.props;
         return (<div className="shop-page">
             <Switch>
                 <Route exact path={`${match.path}`} render={ 
                     (props) => (<CollectionOverviewWithSpinner isLoading={isFetching} {...props} />)} />
                 <Route path={`${match.path}/:collectionId`} render={
-                    (props) => (<CollectionPageWithSpiner isLoading={isFetching} {...props} />)
+                    (props) => (<CollectionPageWithSpiner isLoading={!isLoaded} {...props} />)
                 } />
             </Switch> 
         </div>);
@@ -32,7 +32,8 @@ class ShopPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    isFetching: selectIsFetching(state)
+    isFetching: selectIsFetching(state),
+    isLoaded: selectIsLoaded(state)
 })
 
 const mapDispatchToProps = dispatch => ({
