@@ -5,7 +5,6 @@ const INITIAL_STATE = {
 };
 const userReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case userActionTypes.SIGN_UP_SUCCESS:
         case userActionTypes.EMAIL_SIGN_IN_SUCCESS:
         case userActionTypes.GOOGLE_SIGN_IN_SUCCESS:
             return {
