@@ -19,6 +19,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 currentUser: null,
                 error: null
             }
+
         case userActionTypes.EMAIL_SIGN_IN_FAILURE:
         case userActionTypes.GOOGLE_SIGN_IN_FAILURE:
         case userActionTypes.SIGN_OUT_FAILURE:
